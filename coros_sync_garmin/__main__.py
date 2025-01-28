@@ -15,17 +15,13 @@ SYNC_CONFIG = {
 }
 
 # start time を比較し、同期していないCorosのアクティビティのリストを返します。
-# それぞれのアクティビティは昇順でソートされているので、
-# coros_activities の先頭から比較して、garmin_activities に含まれているアクティビティを検出した時点で比較を終了します。
 def unsynced_coros_activities(garmin_activities, coros_activities):
     unsynced_activities = []
-    garmin_activity = garmin_activities[0]
     for coros_activity in coros_activities:
         coros_activity_start_time = datetime.fromtimestamp(coros_activity['startTime']).strftime('%Y-%m-%d %H:%M:%S')
-        if garmin_activity['startTimeGMT'] == coros_activity_start_time:
-            break
-        else:
+        if not any(garmin_activity['startTimeGMT'] == coros_activity_start_time for garmin_activity in garmin_activities):
             unsynced_activities.append(coros_activity)
+
     return unsynced_activities
 
 def upload_coros_activity_to_garmin(garmin_client, coros_client, coros_activity):
