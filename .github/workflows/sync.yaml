@@ -1,0 +1,30 @@
+name: Sync Coros activities to Garmin
+
+on:
+  schedule:
+    - cron: '13 * * * *'
+  workflow_dispatch:
+
+env:
+  COROS_EMAIL: ${{ secrets.COROS_EMAIL }}
+  COROS_PASSWORD: ${{ secrets.COROS_PASSWORD }}
+  GARMIN_EMAIL: ${{ secrets.GARMIN_EMAIL }}
+  GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Sync Coros activities to Garmin
+        run: python -m coros_sync_garmin
