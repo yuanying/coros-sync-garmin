@@ -1,7 +1,7 @@
 annotated-types==0.7.0
 certifi==2024.12.14
 charset-normalizer==3.4.1
-garth==0.5.2
+garth==0.5.3
 idna==3.10
 oauthlib==3.2.2
 pydantic==2.10.6
