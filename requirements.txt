@@ -1,12 +1,12 @@
 annotated-types==0.7.0
-certifi==2024.12.14
+certifi==2025.4.26
 charset-normalizer==3.4.1
-garth==0.5.2
+garth==0.5.3
 idna==3.10
 oauthlib==3.2.2
 pydantic==2.11.3
-pydantic_core==2.27.2
+pydantic_core==2.34.1
 requests==2.32.3
 requests-oauthlib==2.0.0
-typing_extensions==4.12.2
+typing_extensions==4.13.2
 urllib3==2.3.0
