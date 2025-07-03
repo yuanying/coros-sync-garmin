@@ -48,8 +48,8 @@ def main():
     garmin_client = GarminClient(SYNC_CONFIG['GARMIN_EMAIL'], SYNC_CONFIG['GARMIN_PASSWORD'], SYNC_CONFIG['GARMIN_AUTH_DOMAIN'], SYNC_CONFIG['GARMIN_NEWEST_NUM'])
     coros_client = CorosClient(SYNC_CONFIG['COROS_EMAIL'], SYNC_CONFIG['COROS_PASSWORD'])
 
-    garmin_activities = garmin_client.getActivities(0, 10)
-    coros_activities = coros_client.getActivities(10, 1)
+    garmin_activities = garmin_client.getActivities(0, 20)
+    coros_activities = coros_client.getActivities(20, 1)
 
     print("--> garmin_activities")
     for garmin_activity in garmin_activities:
