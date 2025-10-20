@@ -4,7 +4,7 @@ charset-normalizer==3.4.3
 garth==0.5.3
 idna==3.10
 oauthlib==3.2.2
-pydantic==2.11.3
+pydantic==2.12.3
 pydantic_core==2.33.1
 requests==2.32.3
 requests-oauthlib==2.0.0
